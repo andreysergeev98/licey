@@ -1,0 +1,619 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Articledwas for 123{% endblock %}
+
+{% block content %}
+
+
+<script src="{% static 'js/zuck.min.js' %}"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+
+
+
+<!-- <header class="lock-padding menutop-bg">
+    <div class="header__content">
+      <div>
+        <a href="#popup-menu" class="popup-link header__points">
+          {% if not bonus_account is None %}<span ><img src="{% static 'images/piggy-bank2.svg' %}" alt="coin" class="header__economy-icon" /> <span class="bonusHeader">{{bonus_account}}</span>  </span>{% else %} <img src="{% static 'images/logIn-icon.svg' %}" alt=""> {% endif %}
+          
+        </a>
+        <div class="header__home fontello">
+          <a href="/" class="popup-link fontello"> <span class="icon-logo-menu"><img src="{% static 'images/logo-sito-piano.png' %}" alt=""></span></a>
+        </div>
+      </div>
+    </div>
+  </header> -->
+  <main class="main-index">
+    
+    <section class="advertising-slider top-slider">
+      <div id="stories" class="storiesWrapper"></div>
+      <div class="swiper-container advertising-slider__swiper">
+        <div class="swiper-wrapper">
+
+          <script>var storys = []; var Storyitems = [];</script>
+          {% for story in stories %}
+          
+          <!-- <div class="swiper-slide">
+            <img data-src="{{story.Headline}}" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+          </div> -->
+
+          <script>
+          
+          
+          
+          Storyitems = ["ramon-1", "photo", 3, "{{story.stories.url}}", '', false, false, timestamp()];
+          
+          
+          console.log(Storyitems)
+          
+          
+          </script>  
+
+
+          <script>
+
+            storys.push(Zuck.buildTimelineItem(
+                  "{{story.headline}}", 
+                  "{{story.banner.url}}",
+                  "{{story.headline}}",
+                  "https://ramon.codes",
+                  timestamp(),
+                  [
+                  Storyitems
+                  ]
+                ))
+                
+            
+            console.log(storys)
+          </script>
+
+          {% endfor %}
+
+          <script>
+            var currentSkin = getCurrentSkin();
+            var stories = new Zuck('stories', {
+              backNative: true,
+              previousTap: true,
+              skin: currentSkin['name'],
+              autoFullScreen: currentSkin['params']['autoFullScreen'],
+              avatars: currentSkin['params']['avatars'],
+              paginationArrows: currentSkin['params']['paginationArrows'],
+              list: currentSkin['params']['list'],
+              cubeEffect: currentSkin['params']['cubeEffect'],
+              localStorage: true,
+              stories: storys
+            });
+          </script>
+          
+
+
+
+
+
+
+
+
+
+
+          
+
+        </div>
+        <!-- <a href="#" class="edit-admin fontello">&#xe801;</a> -->
+      </div>
+      <a href="#popup-advertising" class="advertising-slider__link display-none popup-link"></a>
+    </section>
+    <section class="collection-discounts-slider">
+      <div class="swiper-container collection-discounts-slider__swiper">
+        <div class="swiper-wrapper">
+
+          {% for big_disc in big_discs %}
+
+          
+
+          <div class="swiper-slide">
+            <img data-src="{{big_disc.banner.url}}" class="swiper-lazy" />
+            <div class="swiper-lazy-preloader"></div>
+            <div class="collection-discounts-slider__text display-none">
+              <h2>{{big_disc.headline}}</h2>
+              <div class="text">
+                {{big_disc.content}}
+              </div>
+
+              
+              
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+        <!-- <a href="#" class="edit-admin fontello">&#xe801;</a> -->
+      </div>
+      <a href="#popup-collection-discounts" class="collection-discounts-slider__link display-none popup-link"></a>
+    </section>
+    <!-- <section class="big-discounts-slider">
+      <div class="section-header">
+        <h3>Персональные акции</h3>
+ 
+      </div>
+      
+      <div class="swiper-container big-discounts-slider__swiper">
+        <div class="swiper-wrapper">
+
+          {% for crazysale in crazySales %}
+          
+
+          <div class="swiper-slide" data-cargo-img="{{crazysale.banner.url}}">
+            <div data-background="{{crazysale.banner.url}}" class="swiper-lazy bg-box-gray" >
+              <div class="swiper-lazy-preloader"></div>
+              <div class="big-discounts-slider__discount">
+                <div class="big-discounts-slider__name">{{crazysale.headline}}</div>
+                <div class="big-discounts-slider__percent red-circle">-{{crazysale.discount}}%</div>
+              </div>
+              <span class="big-discounts-slider__end-date">{{crazysale.pub_date}}</span>
+              <div class="big-discounts-slider__time-left countdown" data-year="2021" data-month="05" data-day="27">
+                Осталось: <br />
+                <span class="countdown__hours">00</span> : <span class="countdown__mins">00</span> :
+                <span class="countdown__secs">00</span>
+              </div>
+            </div>
+            <div class="big-discounts-slider__text-1 display-none">
+              {{crazysale.content}}
+            </div>
+            <div class="big-discounts-slider__text-2 display-none">
+              {{crazysale.placeholder}}
+            </div>
+          </div>
+
+          {% endfor %}
+
+       
+
+
+        </div>
+      
+      </div>
+      <a href="#popup-big-discounts" class="big-discounts-slider__link display-none popup-link"></a>
+    </section> -->
+
+
+
+
+
+
+    <!-- ----------------------------------------------БОНУСНАЯ КАРТА------------------------------------------- -->
+
+
+
+    <section class="bonus-cart">
+
+        <div class="container-bonus-cart">
+            <div class="content-bonus-cart">
+
+
+              <div class="box-bonus-cart">
+
+                
+                  <!-- <a href="#popup-qrmenu" class="popup-history__open-points popup-link qrcode-carticon" onclick="getQrCode();"><img src="{% static 'images/qr-code.svg' %}" alt=""></a> -->
+                  <!-- <img src="{% static 'images/card.svg' %}" alt=""> -->
+                  {% if account %}
+                  <div class="virtual-card" style="background-image: url('licey/static/images/cart.jpg');">
+
+                    <div class="name-holder-cart"><h3>{{account.L_Name}} {{account.F_Name}}</h3></div>
+
+                    <div class="num-holder-cart"><p>{{cart}}</p></div>
+                  </div>
+
+
+
+                <div class="bonus-info">
+                  <h2>Ваши данные</h2>
+
+                  <div class="list-bonus">
+
+                      <div class="name-info-card info-card-list"><img src="{% static 'images/user_info.svg' %}" alt="">{{account.L_Name}} {{account.F_Name}}</div>
+                      <div class="phone-info-card info-card-list"><img src="{% static 'images/telephone.svg' %}" alt="">{{phonecart}}</div>
+                      <div class="born-info-card info-card-list"><img src="{% static 'images/birth.svg' %}" alt="">{{account.Birth}}</div>
+
+
+                  </div>
+    
+                </div>
+
+                {% else %} 
+
+
+                <div class="virtual-card" style="background-image: url('/licey/static/images/cart.jpg');">
+
+                  <div class="name-holder-cart" ><h3>Виртуальная карта</h3></div>
+
+                  <div class="num-holder-cart"><a href="#popup-menu" class="btn-default popup-link fontello" style="color:#000; background-color: #fff;">Войти</a></div>
+                </div>
+
+                <div class="bonus-info">
+                  <h2>Инструкция: </h2>
+
+                  <div class="list-bonus">
+
+                      <div class="name-info-card info-card-list">1. Авторизируйтесь в личный кабинет</div>
+                      <div class="phone-info-card info-card-list">2. Откройте вкладку Личный кабинет и отредактируйте личные данные</div>
+                      <div class="born-info-card info-card-list">3.Можете оплачивать покупки с помощью карты и отслеживать историю заказов</div>
+
+
+                  </div>
+    
+                </div>
+
+
+
+
+
+                {% endif %} 
+
+
+              </div>
+
+
+              <div class="panel-cart-right">
+<!-- 
+                <div class="detail-cart">
+                  <h3>Детали карты</h3>
+                  <p>Номер карты</p>
+                  <p>2010 0096 92968</p>
+                </div> -->
+
+                <div class="rules-cart">
+                  <h3>Условия и правила</h3>
+                  <p>При помощи нашего инструмента Вы можете:</p>
+
+                  <div class="rules-content">
+                    <p>Начисляйте баллы за продажу вашего товара, анализируйте результаты продаж,
+                       коммуницируйте с продавцами вашего товара, проводите акции по регионам и городам.</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- ------------------------------------------ЕДИНАЯ БОНУСНАЯ СИСТЕМА-------------------------------------- -->
+
+<!-- 
+    <section class="bonus-system-box">
+      <div class="container-bonus">
+        <div class="content-bonus">
+          <div class="box-up-auth">
+            <h2></h2>
+            <div class="picture-auth"></div>
+          </div>
+          <div class="box-btn_content">
+           
+          </div>
+
+          <div class="box-qr-main display-none"><a href="#popup-qrmenu" class="big-discounts-slider__link qrcode-bonus  popup-link" onclick="getQrCode()"><span class="icon-qr-btn"> <img src="{% static 'images/qr-code.svg' %}" alt=""></span></a></div>
+        </div>
+
+        <div class="loading display-none">
+          <img src="{% static 'images/loading.svg' %}" alt="loading" />
+        </div>
+
+      </div>
+
+      <div class="container-bonus-notauth display-none">
+        <div class="content-bonus">
+          <div class="box-up-auth">
+            <h2>ЕДИНАЯ БОНУСНАЯ КАРТА</h2>
+            <div class="picture-auth"><img src="{% static 'images/logo-sito-piano.png' %}" alt=""></div>
+          </div>
+          <div class="box-btn_content">
+            <p>Авторизируйтесь для просмотра личного кабинета</p>
+            <a href="#popup-registration" style="width: 100%;" class="btn-default popup-link"><span>Войти</span></a>
+
+          </div>
+          <div class="box-qr-main display-none"><a href="#popup-qrmenu" class="big-discounts-slider__link qrcode-bonus  popup-link" onclick="getQrCode()">Ваш Qrcode</a></div>
+        </div>
+
+        <div class="loading display-none">
+          <img src="{% static 'images/loading.svg' %}" alt="loading" />
+        </div>
+
+      </div>
+    </section> -->
+
+
+    <!-- -----------------------------------Плашка получения QRMENU------------------------------------------ -->
+
+    <!-- <section class="qrcode-bonus-content">
+
+      <a href="#popup-qrmenu" class="big-discounts-slider__link qrcode-bonus  popup-link" onclick="getQrCode()">
+
+       <span class="fontello cart-qrmenu">&#xe803;</span> 
+       
+        <div class="qrcode-content">
+         
+          <h3 class="title">
+          
+            Код с чека и для кассира</h3>
+          <p>Используйте бонусы в заведении</p>
+        </div>
+      </a>
+
+      
+    </section> -->
+
+
+
+
+
+    <!-- ---------------------------------категории меню-------------------------------------- -->
+
+    <!-- <section class="category-content">
+
+      <div class="title"><h3>Все категории</h3></div>
+
+      <div class="category-list">
+
+        {% for category in categories %}
+
+        <div class="single-cat">
+          <div class="icon-and-name">
+            <div class="icon-cat"><img src="{{category.banner.url}}" alt=""></div>
+            
+
+            <p>{{category.headline}}</p>
+
+          </div>
+          <span>{{category.conter}}</span>
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+
+    </section> -->
+
+
+
+
+
+
+    <!-- -------------------------------------------------------------------------- -->
+
+
+
+
+    <!-- 
+    <section class="for-seo">
+      <h1>Большой супермаркет «Сыто & Пьяно» теперь в Симферополе</h1>
+      <p>
+        Купить продукты по низким ценам в Симферополе – это больше не проблема. В супермаркете «Сыто & Пьяно» стоимость
+        товаров ниже, чем в любом магазине столицы. Мы покорим ваши сердца низкими ценами и огромным ассортиментом
+        товаров, а также научим экономить на продуктах питания.
+      </p>
+      <h2>Как экономить на продуктах?</h2>
+      <p>
+        Экономия на продовольственных товарах заключается в правильном подходе к распоряжению деньгами, а не в отказе
+        от определенных полезных продуктов. В погоне за сбережением денежных средств никогда не стоит забывать о своем
+        здоровье и отказывать себе в чем-либо. Толчком к профессиональной экономии станут небольшие лайфхаки от нашего
+        супермаркета:
+      </p>
+      <h2>Продукты по низким ценам</h2>
+      <p>
+        Супермаркет в Симферополе «Сыто & Пьяно» предлагает своим клиентам большой выбор товаров по минимальной
+        стоимости. Мы стараемся устанавливать низкие цены на продукты, потому что понимаем, что для счастья и здоровья
+        людей очень важно полноценное питание.
+      </p>
+    </section> -->
+  </main>
+
+
+
+
+
+
+
+
+  <div id="popup-advertising" class="popup">
+    <div class="popup__body">
+      <div class="popup__content">
+        <span class="popup__close"> &#10005; </span>
+        <div class="swiper-container popup-advertising__swiper">
+          <div class="swiper-wrapper">
+
+            {% for story in stories %}
+
+            <div class="swiper-slide" style="background-image: url({{story.stories.url}});">
+              <button class="popup-advertising__btn btn-default">Подробнее</button>
+              <div class="popup-advertising__text display-none"  data-advertising-img="{{story.banner.url}}">
+                <h2>{{story.headline}}</h2>
+                <div class="text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  <em>Это курсив курсив курсив курсив курсив курсив курсив курсив!</em>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus et perspiciatis vitae!
+                  <u><a href="№">Это ссылка</a></u> Error alias ab modi totam reprehenderit sapiente, labore ipsa
+                  officiis ut aliquam, quis in ipsam quisquam voluptate. Maxime, temporibus!
+                  <u>Laudantium totam molestiae reprehenderit eos blanditiis?</u> Error, et facere voluptas unde a ut
+                  obcaecati rerum minima aliquam. Sapiente, explicabo.
+                  <strong>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strong>
+                  Error alias ab modi totam reprehenderit sapiente, labore ipsa officiis ut aliquam, quis in ipsam
+                  quisquam voluptate. Maxime, temporibus!
+                  <strike>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strike>
+                </div>
+                <h3>Заголовок Заголовок h3</h3>
+                <p>Это параграф параграфпараграфпараграф параграф параграф параграф параграф параграф параграф</p>
+                <ul>
+                  <li>список немаркерованный</li>
+                  <li>список немаркерованный</li>
+                  <li>список немаркерованный</li>
+                </ul>
+                <ol>
+                  <li>список маркерованный</li>
+                  <li>список маркерованный</li>
+                  <li>список маркерованный</li>
+                </ol>
+              </div>
+            </div>
+
+            {% endfor %}
+
+
+          </div>
+        </div>
+        <a href="#popup-advertising-details" class="popup-advertising__link popup-link display-none"></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="popup-menu" class="popup">
+    <div class="popup__body">
+      <div class="popup__content">
+        <div class="popup__navigation">
+          <!-- <a class="popup-link popup__back-link fontello">&#xe817;</a> -->
+          <span class=" popup__close fontello">&#xe817;</span>
+          <span>Личный кабинет</span>
+          <span class="popup__close"> &#10005; </span>
+        </div>
+
+
+        {% if not auth %}   
+
+        <div class="popup-menu__login">
+          <div>
+            Войдите для просмотра <br />
+            личного кабинета
+          </div>
+          <span class="popup-menu__login-btn"><a href="#popup-registration" class="popup-link">Войти</a></span>
+        </div>
+           
+        {% endif %}
+
+
+        <div class="popup-menu__score">
+          {% if not bonus_account is None %}
+          <div>
+            <div>Лицевой счет:</div>
+            <div class="popup-menu__score-img-box">
+              <img src="{% static 'images/piggy-bank2.svg' %}" alt="economy" class="popup-menu__img-economy" /> <span class="bonusHeader">{{bonus_account}} </span>
+            </div>
+          </div>
+
+          {% endif %}
+          <!-- <div>
+            <div>Баллы:</div>
+            <div class="popup-menu__score-img-box">
+              <img src="{% static 'images/football.svg' %}" alt="rate" class="popup-menu__img-economy" /> 100 Б
+            </div>
+          </div> -->
+        </div>
+        <div class="menu-auth">
+
+
+          {% if auth %} 
+          <a href="#popup-data" onclick="infoProfile();" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe815;</span>
+              <span>Анкета</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a>
+
+          <a href="#popup-history" class="popup-menu__main-item popup-link" onclick="UserHistory()">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xf1da;</span>
+              <span>История операций</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a>
+
+
+          <a href="#popup-managmentCart" class="popup-menu__main-item popup-link" >
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xf1da;</span>
+              <span>управление картой</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a>
+          
+          <!-- <a href="#popup-discounts" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe818;</span>
+              <span>Персональные скидки</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a> -->
+
+
+          <!-- <a href="#popup-notifications" onclick="UserGifts()" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe812;</span>
+              <span>Подарки</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a> -->
+
+
+          <a href="#popup-activedevices" onclick="ActiveDevice()" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe812;</span>
+              <span>История активности</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a>
+
+
+          <a href="#popup-paymaster" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe812;</span>
+              <span>Пополнение счета</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a>
+
+
+          <a href="#popup-rating" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe809;</span>
+              <span>Оцените наше приложение</span> </span
+            ><span class="fontello">&#xf006;</span>
+          </a>
+          {% endif %}
+
+
+          <a href="#popup-document" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe819;</span>
+              <span>Обработка перс. данных</span> </span
+            ><span class="fontello">&#xf006;</span>
+          </a>
+          <!-- <a href="#popup-support" class="popup-menu__main-item popup-link">
+            <span>
+              <span class="popup-menu__main-item-icon fontello">&#xe807;</span>
+              <span>Поддержка</span>
+            </span>
+            <span class="fontello">&#xf006;</span>
+          </a> -->
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+    

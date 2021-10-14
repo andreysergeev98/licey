@@ -1,0 +1,1 @@
+2021/10/08 05:48:50 [error] 542#542: *6153 open() "/home/web/sites/licey/media/wp-includes/wlwmanifest.xml" failed (2: No such file or directory), client: 34.126.159.33, server: licey.stop.cash, request: "GET //media/wp-includes/wlwmanifest.xml HTTP/1.1", host: "licey.stop.cash"

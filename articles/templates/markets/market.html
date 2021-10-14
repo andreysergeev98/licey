@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Articledwas for 123{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <section class="sect-market-menu">
+      
+    <div class="menu-market">
+
+
+    <div class="box-find-dishs display-none">
+      <input class="find-dishs" id="search-dish" type="text" placeholder="Введите название блюда">
+      <span onclick="findHide(this);">х</span>
+    </div>
+
+      <!-- <p  onclick="ShowAllDishes()"><img src="" alt=""><span style="color:#fff;">все</span></p>
+      <p class="favorites_btn" onclick="favoriteShow();"><img src="" alt=""><span style="color:#fff;">избранное</span></p> -->
+      <div class="swiper-categorys"></div>
+
+      
+      <div class="btn-adap-blog" onclick="AdaptiveBlocks(this);">
+        <img class='sort_block2' src="{% static 'images/sort3.svg' %}" alt="">
+        <img class='sort_block display-none' src="{% static 'images/sort1.png' %}" alt="">
+      </div>
+
+
+      <div class="dropdown-leng">RU</div>
+
+      <div class="dropdown-leng icon-find-headMarket" onclick="findShow(this);"><img src="{% static 'images/find-head.svg' %}" alt=""></div>
+    </div>
+
+</section>
+
+
+
+<div class="container">
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      marketView()
+      
+      });
+ </script>
+    <section>
+
+        <div class="content-favor-items container display-none"></div>
+        <div id="products-view" class="dishes__items container">
+
+
+
+ 
+
+        </div>
+    </section>
+ 
+  </div>
+
+
+
+
+{% endblock %}

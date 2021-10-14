@@ -1,0 +1,1705 @@
+{% load static %}
+
+
+
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link
+      rel="preload"
+      href="/static/fonts/san-francisco/SFProDisplay-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/static/fonts/san-francisco/SFProDisplay-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    
+    <link rel="stylesheet" href="{% static 'css/app.228461a404e87a98241d.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/iao-alert.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/zuck.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/snapgram.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/pagination.css' %}">
+    <link rel="stylesheet" href="{% static 'css/widget.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+    
+
+</head>
+<body>
+  {% csrf_token %}
+  
+    {% comment %} <img src="/licey/static/images/fvuom63fat7aizcktlm3.jpg" alt="Logo"> {% endcomment %}
+    {% block content %}{% endblock %}
+
+       <!-- class="lock-padding" -->
+
+       
+       
+      
+      <footer class="lock-padding">
+
+        <div class="foot-box">
+        <!-- <a href="/" class="fontello">&#xe814; <span>Сыто & Пьяно</span></a> -->
+
+
+
+        <!-- <a href="#popup-notes" class="popup-link fontello">&#xe803; <span>Маркет</span></a> -->
+
+        <!-- <a href="/market" class=" fontello">&#xe803; <span>Маркет</span></a> -->
+
+        <a href="/" class="popup-menu__main-item popup-link fontello" >&#xe814; <span>Главная</span></a>
+
+
+        <a href="#popup-support" class="popup-menu__main-item popup-link fontello" >&#xe812; <span>Поддержка</span></a>
+        
+        
+        <!-- <a href="#popup-cart" onclick="showCart()" class="popup-menu__main-item popup-link fontello" >&#xe803; <span>Корзина</span></a> -->
+
+        
+
+        <a href="#popup-history" class="popup-menu__main-item popup-link fontello" onclick="UserHistory()">
+          &#xe803; <span>История операций</span>
+        </a>
+
+        
+
+
+
+        <!-- <a href="#popup-notifications" onclick="UserGifts()" class="popup-menu__main-item popup-link fontello" >
+          &#xe808; <span>Подарки</span>
+        </a> -->
+
+
+
+      
+
+        
+        <!-- <div  class="fontello" onclick="testt()">&#x1f90d; <span>Любимые</span></div> -->
+
+
+
+        <!-- <a href="#popup-cards" class="footer__card-box popup-link"
+          ><img src="{% static 'images/' %}nat-2.jpg" alt="logo-btn" class="footer__img-btn"
+        /></a> -->
+        
+        <a href="#popup-menu" class="popup-link fontello">&#xe815; <span>ЛИЧНЫЙ КАБИНЕТ</span></a>
+
+      </div>
+
+      <div class="info-company">
+
+        <div class="company-column">
+
+          <span>ИП Лобик Денис Андреевич, ИНН 910200145300, ОГРНИП 910200145300</span>
+          <!-- <a target="_blank" href="/static/files/Publichnaya-oferta-Meganom.pdf">Договор оферты</a> -->
+
+        </div>
+
+      </div>
+      </footer>
+
+
+   
+
+
+      
+  
+      
+  
+      <div id="popup-login" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Вход/регистрация</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-login__form popup__main">
+              <div class="popup-login__enter-error error display-none">Неправильный телефон или пароль!</div>
+              <input type="text" placeholder="Введите ваш телефон" class="inp-default " id="popup-login__tel" />
+              <input type="password" placeholder="Введите ваш пароль" class="inp-default" id="popup-login__pass" />
+              <div class="popup__buttons">
+                <a href="#popup-registration" class="btn-default btn-default_b popup-link">Регистрация</a>
+                <input type="submit" value="Войти" class="btn-default" disabled />
+              </div>
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+              <a href="#popup-fogot-pass" class="popup-link">Забыли пароль ?</a>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-registration" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Авторизация по SMS</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <div class="popup-registration__step-1">
+                <!-- <div class="popup-registration__tel-error error display-none">Данный телефон уже зарегистрирован!</div> -->
+                <input
+                  type="tel"
+                  autocomplete="on"
+                  placeholder="Введите ваш телефон"
+                  class="inp-default tel_mask"
+                  id="registration__phone"
+                />
+                <button  class="btn-default btn_Auth" onclick="getAuth()" >Получить SMS с кодом</button>
+                <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+                </div>
+              </div>
+
+
+              
+              <form class="popup-registration__step-2 display-none">
+                <div class="popup-registration__sms-pass-error error display-none">Вы ввели неправильный код!</div>
+                <input
+                  type="text"
+                  placeholder="Введите код из СМС"
+                  class="inp-default"
+                  id="popup-registration__sms-pass-inp"
+                />
+
+                <div class="box-error-sms"><span></span></div>
+
+                <div class="code-timeout"><span>
+                  
+                  
+              </span></div>
+
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+                <!-- <div type="submit" value="Далее" class="btn-default btn-test" onclick="testt()">Далее</div> -->
+              </form> 
+
+
+
+              <!-- <form class="popup-registration__step-3 display-none">
+                <input type="text" placeholder="Имя*" class="inp-default" id="popup-registration__name" />
+                <input type="text" placeholder="Фамилия*" class="inp-default" id="popup-registration__surname" />
+                <input type="text" placeholder="Отчество" class="inp-default" id="popup-registration__patronymic" />
+                <input
+                  type="text"
+                  placeholder="Дата рождения*"
+                  class="inp-default"
+                  id="popup-registration__birth"
+                  onfocus="(this.type='date')"
+                />
+                <input type="email" placeholder="Email*" class="inp-default" id="popup-registration__email" />
+                <div class="popup-registration__gender-box">
+                  Пол*:&nbsp;&nbsp;&nbsp;
+                  <input type="radio" name="popup-registration__gender" id="popup-registration__gender-male" checked />
+                  <label for="popup-registration__gender-male">Мужской</label>&nbsp;&nbsp;&nbsp;
+                  <input type="radio" name="popup-registration__gender" id="popup-registration__gender-female" />
+                  <label for="popup-registration__gender-female">Женский</label>
+                </div>
+                <input type="submit" value="Далее" class="btn-default" disabled />
+              </form>
+              <form class="popup-registration__step-4 display-none">
+                <div class="popup-registration__matching-passes-error error display-none">Пароли не совпадают!</div>
+                <input
+                  type="password"
+                  placeholder="Пароль, НЕ МЕНЕЕ 8 символов"
+                  class="inp-default"
+                  id="popup-registration__pass-1"
+                />
+                <input
+                  type="password"
+                  placeholder="Повторите введеный пароль"
+                  class="inp-default"
+                  id="popup-registration__pass-2"
+                />
+                <input type="submit" value="Завершить" class="btn-default" disabled />
+                <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+                </div>
+              </form>  -->
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-fogot-pass" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Восстановление пароля</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-fogot-pass__form popup__main">
+              <div class="popup-fogot-pass__error display-none">Данный телефон не зарегистрирован!</div>
+              <input
+                type="text"
+                placeholder="Введите ваш телефон"
+                class="inp-default phone-mask"
+                id="popup-fogot-pass__tel"
+              />
+              <input type="submit" value="Восстановить пароль" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+            <a href="#popup-fogot-pass-success" class="popup-fogot-pass__link popup-link display-none"></a>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-dish" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span class="title_nav-popup">Самса</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-fogot-pass-success__main popup__main">
+
+              <div class="popup-category-dish"></div>
+              <div class="popup-fogot-pass-success__icon">
+                
+                <!-- <span class="fontello">&#xe80b;</span> -->
+              
+              </div>
+
+              <div id="dish-white-block"><img src="/licey/static/images/fvuom63fat7aizcktlm3.jpg" style="width: 100%;" alt=""></div>
+              <h2>Самса(100гр.) - 250 руб</h2>
+              <div class="popup-dish-content">Очень вкусная самса</div>
+
+
+              <div class="content-nutritional-value">
+
+                <div class="circle-ckal">
+                  <span class="circle-ckal-count">518</span>
+                  <span class="circle-ckal-text">кКал</span>
+                  <span>22%</span>
+                </div>
+
+                <div class="BJU-table">
+                  <div class="protein_cont list_top"><span style="margin-right: 15px;">Белки</span><span style="color: #888;">_______ </span><span class="count-protein" data-protein="100">46</span><span> г</span></div>
+                  <div class="fats_cont list_top"><span style="margin-right: 15px;">Жиры</span><span style="color: #888;">_______ </span><span class="count-fats" data-fats="100">28</span><span> г</span></div>
+                  <div class="carbohydrates_cont list_top"><span style="margin-right: 15px;">Углеводы</span><span style="color: #888;">___ </span><span class="count-carbohydrates" data-carbohydrates="100">26</span><span> г</span></div>
+                </div>
+
+
+              </div>
+
+
+              <div class="btn-default btn-market"><span>Купить</span></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-data" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Анкета</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="container_profile">
+
+              <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+
+
+              <div class="content-profile">
+                <div class="popup-data__item">
+               
+                  <input type="text" placeholder="Имя*" autocomplete="on" class="inp-default inp-profile f_name" required>
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+  
+                <div class="popup-data__item">
+                  
+                  <input type="text" placeholder="Фамилия*" autocomplete="on" class="inp-default inp-profile l_name" required>
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+  
+  
+                <div class="popup-data__item">
+                  
+                  <input type="text" placeholder="Телефон*" class="inp-default read-inp inp-profile phone_name" readonly required>
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+  
+  
+                <div class="popup-data__item">
+                  <!-- <span> Дата рождения: </span> -->
+                  <input type="date" placeholder="Дата рождения*" class="inp-default inp-profile birthday" required>
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+  
+  
+                <div class="popup-data__item">
+                  <!-- <span> Дата рождения: </span> -->
+  
+                  <select class="gender" required>
+                    <option value="Male">Мужской</option>
+                    <option value="Female">Женский</option>
+                  </select>
+  
+                  <!-- <input type="text" placeholder="Пол*" class="inp-default inp-profile gender" required> -->
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+  
+  
+  
+                <div class="popup-data__item">
+                 
+                  <input type="text" placeholder="Почта*" class="inp-default inp-profile email_name" required>
+                  <!-- <a href="#popup-change-profile" class="popup-link">Иванов Иван Иванович</a> -->
+                </div>
+              
+
+
+              
+
+
+              <div class="btn-default btn-saveProfile" style="width: 100%;" onclick="SaveProfile();">Сохранить анкету</div>
+
+              <div class="popup-data__item popup-data__exit" onclick="exitAccount();">
+                <strong>Выход</strong>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-change-profile" class="popup popup-change">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Изменение профиля</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-change-profile__form popup__main">
+              <input type="text" placeholder="Имя*" class="inp-default" id="popup-change-profile__name" />
+              <input type="text" placeholder="Фамилия*" class="inp-default" id="popup-change-profile__surname" />
+              <input type="text" placeholder="Отчество" class="inp-default" id="popup-change-profile__patronymic" />
+              <input type="submit" value="Изменить" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-change-birth" class="popup popup-change">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Дата рождения</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-change-birth__form popup__main">
+              <input type="date" class="inp-default" id="popup-change-birth__birth" />
+              <input type="submit" value="Изменить" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-change-tel" class="popup popup-change">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Телефон</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-change-tel__step-1 popup__main">
+              <div class="popup-change-tel__tel-exist-error error display-none">Данный телефон уже зарегистрирован!</div>
+              <input type="text" placeholder="Телефон" class="inp-default phone-mask" id="popup-change-tel__tel" />
+              <input type="submit" value="Далее" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+            <form class="popup-change-tel__step-2 popup__main display-none">
+              <div class="popup-change-tel__sms-pass-error error display-none">Вы ввели неправильный код!</div>
+              <input
+                type="text"
+                placeholder="Введите код из СМС"
+                class="inp-default"
+                id="popup-change-tel__sms-pass-inp"
+              />
+              <input type="submit" value="Завершить" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+            <div class="popup-change-tel__step-3 popup__main display-none">
+              <div class="popup-change-tel__success-icon">
+                <span class="fontello">&#xe810;</span>
+              </div>
+              <div>Поздравляем, телефон был успешно изменен!</div>
+              <button class="popup-change-tel__continue-btn btn-default">Далее</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-change-email" class="popup popup-change">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Электронная почта</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-change-email__form popup__main">
+              <div class="popup-change-email__email-exist-error error display-none">Данный email уже занят!</div>
+              <input type="email" placeholder="Email*" class="inp-default" id="popup-change-email__email" />
+              <input type="submit" value="Изменить" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-change-password" class="popup popup-change">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Изменение пароля</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <form class="popup-change-password__form popup__main">
+              <div class="popup-change-password__matching-passes-error error display-none">Пароли не совпадают!</div>
+              <input
+                type="password"
+                placeholder="Пароль, НЕ МЕНЕЕ 4 символов"
+                class="inp-default"
+                id="popup-change-password__pass-1"
+              />
+              <input
+                type="password"
+                placeholder="Повторите пароль"
+                class="inp-default"
+                id="popup-change-password__pass-2"
+              />
+              <input type="submit" value="Изменить" class="btn-default" disabled />
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <div id="popup-support" class="popup">
+        <div class="popup__body">
+          <div class="popup__content"></div>
+        </div>
+      </div> -->
+  
+      <div id="popup-main-discounts" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Персональные скидки</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div>
+              <div class="popup-main-discounts__img-box">
+                <div>
+                  <div class="popup-main-discounts__name"></div>
+                  <div class="popup-main-discounts__percent red-circle"></div>
+                </div>
+                <div class="popup-main-discounts__date"></div>
+              </div>
+              <div class="popup-main-discounts__text-box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-history" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>История покупок</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-history__header">
+              <div class="popup-history__points-score"><span class="score-icon">&#8381;</span> <span id="storyPoint">0.00</span> баланс</div>
+              <div class="popup-history__header-menu">
+                <div class="popup-history__open-purchases popup-history__menu-active">ПОКУПКИ</div>
+                <!-- <a href="#popup-qrmenu" class="popup-history__open-points popup-link" onclick="getQrCode();">МОЙ QRCODE</a> -->
+              </div>
+            </div>
+            <div class="popup__main">
+
+
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+
+
+              <div class="content-profile ">
+
+
+               
+
+
+               
+                
+                    
+                
+                    <ul class="content-checks list-group-item paginationTable list-group mobile-scroll">
+                    
+                     
+                  
+                     
+
+
+                    </ul>
+
+
+
+                    
+                <div id="pagination-container">
+                  <p class='paginacaoCursor' id="beforePagination"><</p>
+                  <p class='paginacaoCursor' id="afterPagination">></p>
+                </div>
+
+                  
+
+
+
+                  <div id="wrapper">
+                    <section>
+                        <div class="data-container"></div>
+                        <div id="pagination-demo1"></div>
+                        
+                    </section>
+                </div>
+
+
+                  
+              
+              <div class="popup-history__points display-none">Ваши баллы: 22 <span class="score-icon">Б</span></div>
+
+              
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-history-details" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span>
+                Ваша выгода составила: <br />
+                <strong
+                  ><span class="popup-history-details__economy"></span> <span class="score-icon">&#8381;</span></strong
+                >
+              </span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div>
+              <!-- <div class="loading display-none">
+                <img src="{% static 'images/' %}loading.svg" alt="loading" />
+              </div> -->
+              <div class="popup-history-details__content">
+                <!-- <div class="popup-history-details__header">
+                  Ваша выгода составила: 123
+                  <span class="score-icon">&#8381;</span>
+                </div> -->
+                <div class="popup-history-details__items"></div>
+                <div class="popup-history-details__footer">
+                  ИТОГ:
+                  <span
+                    ><strike><span class="popup-history-details__old-sum"></span>&#8381;</strike
+                    ><span class="popup-history-details__sum"></span>&#8381;</span
+                  >
+                </div>
+                <div class="popup-history-details__item popup-history-details__item_clone">
+                  <div class="popup-history-details__name"></div>
+                  <div class="popup-history-details__numbers">
+                    <span class="popup-history-details__calc">
+                      <span class="popup-history-details__calc-quantity"></span>шт Х
+                      <span class="popup-history-details__calc-price"></span>&#8381;
+                    </span>
+                    <span class="popup-history-details__total">
+                      <span class="popup-history-details__calc-total-price"></span>&#8381;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <div id="popup-discounts" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Персональные скидки</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div>
+              <div class="swiper-container popup-discounts__swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide popup-discounts__item" data-discount-details-img="{% static 'images/tea.png' %}">
+                    <div class="popup-discounts__img-box swiper-lazy" data-background="{% static 'images/tea.png' %}" ->
+                      <div class="swiper-lazy-preloader"></div>
+                      <div>
+                        <div class="popup-discounts__name">Кастрюли ковши из нержавеющей стали</div>
+                        <div class="red-circle">-40%</div>
+                      </div>
+                      <div class="popup-discounts__date">c 04.07.2021 по 04.07.2021</div>
+                    </div>
+                    <div class="popup-discounts__text-box">
+                      <div class="popup-discounts__activate-btn">
+                        <button class="popup-discounts__btn-details btn-default">О ТОВАРЕ</button>
+                      </div>
+                      <div class="swiper-pagination popup-discounts__pagination"></div>
+                      <strong>в ассортименте</strong>
+                      <div class="popup-discounts__text">
+                        <div>В акции не участвуют товары марок "365 дней" и "отличная цена".</div>
+                        <br />
+                        <div>Категории участвующие в акции: Кастрюли, ковши из нержавеющей стали.</div>
+                        <br />
+                      </div>
+                      <div class="popup-discounts__text-extra">
+                        Скидка по персональному предложению не отображается в приложении и будет применена на кассе
+                      </div>
+                    </div>
+                    <div class="popup-discounts__admin">
+                      <button class="popup-discounts__admin-btn btn-default">Редактировать</button>
+                      
+                      <form
+                        class="popup-discounts__admin-form display-none"
+                        method="POST"
+                        action="/publish-discounts"
+                        enctype="multipart/form-data"
+                      >
+                        <input
+                          class="popup-discounts__picture-inp inp-default"
+                          name="picture"
+                          type="file"
+                          placeholder="Картинка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__discount-inp inp-default"
+                          name="discount"
+                          type="number"
+                          placeholder="Скидка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__title-inp inp-default"
+                          name="title"
+                          type="text"
+                          placeholder="Название"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__content-inp inp-default"
+                          name="content"
+                          type="text"
+                          placeholder="Содержание"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__link-post-inp inp-default"
+                          name="link_post"
+                          type="text"
+                          placeholder="Ссылка на пост в инстаграм"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__date-inp inp-default"
+                          name="date"
+                          type="text"
+                          placeholder="Дата начала и окончания акции"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__btn-slug-inp inp-default"
+                          name="btn_slug"
+                          type="text"
+                          placeholder="Название кнопки"
+                          required
+                        />
+                        <input type="submit" value="Сохранить" class="btn-default" />
+                        <div class="loading display-none">
+                          <img src="/licey/static/images/loading.svg" alt="loading" />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="popup-discounts__details display-none">
+                      <h2>Заголовок Заголовок h2</h2>
+                      <div class="text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <em>Это курсив курсив курсив курсив курсив курсив курсив курсив!</em>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus et perspiciatis vitae!
+                        <u><a href="№">Это ссылка</a></u> Error alias ab modi totam reprehenderit sapiente, labore ipsa
+                        officiis ut aliquam, quis in ipsam quisquam voluptate. Maxime, temporibus!
+                        <u>Laudantium totam molestiae reprehenderit eos blanditiis?</u> Error, et facere voluptas unde a
+                        ut obcaecati rerum minima aliquam. Sapiente, explicabo.
+                        <strong>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strong>
+                        Error alias ab modi totam reprehenderit sapiente, labore ipsa officiis ut aliquam, quis in ipsam
+                        quisquam voluptate. Maxime, temporibus!
+                        <strike>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strike>
+                      </div>
+                      <h3>Заголовок Заголовок h3</h3>
+                      <p>Это параграф параграфпараграфпараграф параграф параграф параграф параграф параграф параграф</p>
+                      <ul>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                      </ul>
+                      <ol>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="swiper-slide popup-discounts__item" data-discount-details-img="{% static 'images/pan2.jpg' %}">
+                    <div class="popup-discounts__img-box swiper-lazy" data-background="{% static 'images/pan2.jpg' %}" >
+                      <div class="swiper-lazy-preloader"></div>
+                      <div>
+                        <div class="popup-discounts__name">Кастрюли ковши из нержавеющей стали</div>
+                        <div class="red-circle">-40%</div>
+                      </div>
+                      <div class="popup-discounts__date">c 04.07.2021 по 04.07.2021</div>
+                    </div>
+                    <div class="popup-discounts__text-box">
+                      <div class="popup-discounts__activate-btn">
+                        <button class="popup-discounts__btn-details btn-default">О ТОВАРЕ</button>
+                      </div>
+                      <div class="swiper-pagination popup-discounts__pagination"></div>
+                      <strong>в ассортименте</strong>
+                      <div class="popup-discounts__text">
+                        <div>В акции не участвуют товары марок "365 дней" и "отличная цена".</div>
+                        <br />
+                        <div>Категории участвующие в акции: Кастрюли, ковши из нержавеющей стали.</div>
+                        <br />
+                      </div>
+                      <div class="popup-discounts__text-extra">
+                        Скидка по персональному предложению не отображается в приложении и будет применена на кассе
+                      </div>
+                    </div>
+                    <div class="popup-discounts__admin">
+                      <button class="popup-discounts__admin-btn btn-default">Редактировать</button>
+                      
+                      <form
+                        class="popup-discounts__admin-form display-none"
+                        method="POST"
+                        action="/publish-discounts"
+                        enctype="multipart/form-data"
+                      >
+                        <input
+                          class="popup-discounts__picture-inp inp-default"
+                          name="picture"
+                          type="file"
+                          placeholder="Картинка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__discount-inp inp-default"
+                          name="discount"
+                          type="number"
+                          placeholder="Скидка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__title-inp inp-default"
+                          name="title"
+                          type="text"
+                          placeholder="Название"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__content-inp inp-default"
+                          name="content"
+                          type="text"
+                          placeholder="Содержание"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__link-post-inp inp-default"
+                          name="link_post"
+                          type="text"
+                          placeholder="Ссылка на пост в инстаграм"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__date-inp inp-default"
+                          name="date"
+                          type="text"
+                          placeholder="Дата начала и окончания акции"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__btn-slug-inp inp-default"
+                          name="btn_slug"
+                          type="text"
+                          placeholder="Название кнопки"
+                          required
+                        />
+                        <input type="submit" value="Сохранить" class="btn-default" />
+                        <div class="loading display-none">
+                          <img src="/licey/static/images/loading.svg" alt="loading" />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="popup-discounts__details display-none">
+                      <h2>Заголовок Заголовок h2</h2>
+                      <div class="text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <em>Это курсив курсив курсив курсив курсив курсив курсив курсив!</em>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus et perspiciatis vitae!
+                        <u><a href="№">Это ссылка</a></u> Error alias ab modi totam reprehenderit sapiente, labore ipsa
+                        officiis ut aliquam, quis in ipsam quisquam voluptate. Maxime, temporibus!
+                        <u>Laudantium totam molestiae reprehenderit eos blanditiis?</u> Error, et facere voluptas unde a
+                        ut obcaecati rerum minima aliquam. Sapiente, explicabo.
+                        <strong>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strong>
+                        Error alias ab modi totam reprehenderit sapiente, labore ipsa officiis ut aliquam, quis in ipsam
+                        quisquam voluptate. Maxime, temporibus!
+                        <strike>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strike>
+                      </div>
+                      <h3>Заголовок Заголовок h3</h3>
+                      <p>Это параграф параграфпараграфпараграф параграф параграф параграф параграф параграф параграф</p>
+                      <ul>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                      </ul>
+                      <ol>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="swiper-slide popup-discounts__item" data-discount-details-img="{% static 'images/pan.jpg' %}">
+                    <div class="popup-discounts__img-box swiper-lazy" data-background="{% static 'images/pan.jpg' %}" ->
+                      <div class="swiper-lazy-preloader"></div>
+                      <div>
+                        <div class="popup-discounts__name">Кастрюли ковши из нержавеющей стали</div>
+                        <div class="red-circle">-40%</div>
+                      </div>
+                      <div class="popup-discounts__date">c 04.07.2021 по 04.07.2021</div>
+                    </div>
+                    <div class="popup-discounts__text-box">
+                      <div class="popup-discounts__activate-btn">
+                        <button class="popup-discounts__btn-details btn-default">О ТОВАРЕ</button>
+                      </div>
+                      <div class="swiper-pagination popup-discounts__pagination"></div>
+                      <strong>в ассортименте</strong>
+                      <div class="popup-discounts__text">
+                        <div>В акции не участвуют товары марок "365 дней" и "отличная цена".</div>
+                        <br />
+                        <div>Категории участвующие в акции: Кастрюли, ковши из нержавеющей стали.</div>
+                        <br />
+                      </div>
+                      <div class="popup-discounts__text-extra">
+                        Скидка по персональному предложению не отображается в приложении и будет применена на кассе
+                      </div>
+                    </div>
+                    <div class="popup-discounts__admin">
+                      <button class="popup-discounts__admin-btn btn-default">Редактировать</button>
+                      
+                      <form
+                        class="popup-discounts__admin-form display-none"
+                        method="POST"
+                        action="/publish-discounts"
+                        enctype="multipart/form-data"
+                      >
+                        <input
+                          class="popup-discounts__picture-inp inp-default"
+                          name="picture"
+                          type="file"
+                          placeholder="Картинка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__discount-inp inp-default"
+                          name="discount"
+                          type="number"
+                          placeholder="Скидка"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__title-inp inp-default"
+                          name="title"
+                          type="text"
+                          placeholder="Название"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__content-inp inp-default"
+                          name="content"
+                          type="text"
+                          placeholder="Содержание"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__link-post-inp inp-default"
+                          name="link_post"
+                          type="text"
+                          placeholder="Ссылка на пост в инстаграм"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__date-inp inp-default"
+                          name="date"
+                          type="text"
+                          placeholder="Дата начала и окончания акции"
+                          required
+                        />
+                        <input
+                          class="popup-discounts__btn-slug-inp inp-default"
+                          name="btn_slug"
+                          type="text"
+                          placeholder="Название кнопки"
+                          required
+                        />
+                        <input type="submit" value="Сохранить" class="btn-default" />
+                        <div class="loading display-none">
+                          <img src="/licey/static/images/loading.svg" alt="loading" />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="popup-discounts__details display-none">
+                      <h2>Заголовок Заголовок h2</h2>
+                      <div class="text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <em>Это курсив курсив курсив курсив курсив курсив курсив курсив!</em>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus et perspiciatis vitae!
+                        <u><a href="№">Это ссылка</a></u> Error alias ab modi totam reprehenderit sapiente, labore ipsa
+                        officiis ut aliquam, quis in ipsam quisquam voluptate. Maxime, temporibus!
+                        <u>Laudantium totam molestiae reprehenderit eos blanditiis?</u> Error, et facere voluptas unde a
+                        ut obcaecati rerum minima aliquam. Sapiente, explicabo.
+                        <strong>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strong>
+                        Error alias ab modi totam reprehenderit sapiente, labore ipsa officiis ut aliquam, quis in ipsam
+                        quisquam voluptate. Maxime, temporibus!
+                        <strike>Rerum labore quos beatae odit et dicta officiis vel! Magni, officiis. </strike>
+                      </div>
+                      <h3>Заголовок Заголовок h3</h3>
+                      <p>Это параграф параграфпараграфпараграф параграф параграф параграф параграф параграф параграф</p>
+                      <ul>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                        <li>список немаркерованный</li>
+                      </ul>
+                      <ol>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                        <li>список маркерованный</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <a href="#popup-discount-details" class="popup-discounts__link popup-link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+   -->
+      <div id="popup-discount-details" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>О ТОВАРЕ</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <div class="popup-discount-details__div-img">
+                <img class="popup-discount-details__img" src="/licey/static/images/pan2.jpg" alt="product" />
+              </div>
+              <div class="popup-discount-details__text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-document" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Документы</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые ООО "КМ РЕСТОРАНТС" (далее – Оператор).
+              1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.
+              1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="popup-support" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+           
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-rating" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Оцените приложение</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <div class="popup-rating__stars-box">
+                <div class="popup-rating__stars fontello">
+                  <h2>Ваша оценка:</h2>
+                  <span data-appraisal="1">&#9733; </span>
+                  <span data-appraisal="2">&#9733; </span>
+                  <span data-appraisal="3">&#9733; </span>
+                  <span data-appraisal="4">&#9733; </span>
+                  <span data-appraisal="5">&#9733;</span>
+                </div>
+                <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+                </div>
+              </div>
+              <div class="popup-rating__rate-five display-none">
+                <a href="https://play.google.com/" class="popup-rating__btn-rate-five btn-default" target="_blank">Добавить оценку</a>
+              </div>
+              <form class="popup-rating__rate-not-five display-none">
+                <h2>Что вам не понравилось?</h2>
+                <textarea id="popup-rating__text-area-review" rows="7" class="text-area-default" required></textarea>
+                <div onclick="sentLikedapp();" value="Отправить" class="btn-default anketa-likedapp" >Отправить</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-big-discounts" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Персональные акции</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <div class="big-discounts-slider__discount">
+                <div class="popup-big-discounts__end-date"></div>
+                <div class="popup-big-discounts__percent red-circle"></div>
+              </div>
+              <div class="popup-big-discounts__img-box">
+                <img class="popup-big-discounts__img" alt="cargo" />
+              </div>
+              <div>
+                <div class="popup-big-discounts__header">
+                  <!-- Скидка на товары бренда <span class="popup-big-discounts__cargo-name">Linpon Tea</span> -->
+                </div>
+                <div class="popup-big-discounts__text-1"></div>
+                <div class="popup-big-discounts__time-left">
+                  До начала акции осталось: <br />
+                  <span class="popup-big-discounts__hours countdown__hours"></span> :
+                  <span class="popup-big-discounts__mins countdown__mins"></span> :
+                  <span class="popup-big-discounts__secs countdown__secs"></span>
+                </div>
+                <div class="popup-big-discounts__text-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-qrmenu" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <!-- <a class="popup-link popup__back-link fontello">&#xe817;</a> -->
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span style="margin: auto;">Накопленные бонусы</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main popup-box-qrmenu">
+              <div class="box-qrmenu">
+
+
+                <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+                </div>
+
+
+                <div class="content-profile">
+                  <h3>Код для кассира</h3>
+                  <div id="qrcode"></div>
+                </div>
+
+              </div>
+  
+              <div class="line-or"><span></span> <p> или </p> <span></span></div>
+              <div class="qrmenu-inpt-and-comment">
+  
+                <input type="text" placeholder="Код с чека 0000 # 0000">
+  
+                <h3>Оплата и бонусы в заведениях Сыто & Пьяно</h3>
+                <p>
+                  Если вы стоите на кассе, покажите верхний код кассиру
+  
+                  Если вам принесли счет, найдите 8-значный код в подвале чека и введите его</p>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-week-goods" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Товары недели</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <div class="popup-week-goods__discount">
+                <div class="popup-week-goods__percent red-circle"></div>
+              </div>
+              <div class="popup-week-goods__img-box"><img class="popup-week-goods__img" alt="cargo" /></div>
+              <div>
+                <div class="popup-week-goods__header"></div>
+                <div class="popup-week-goods__article">
+                  <span class="popup-week-goods__rate"> &#9733; <span class="popup-week-goods__rate-number"></span></span
+                  >&nbsp;&nbsp;&nbsp; Арт. <span class="popup-week-goods__article-number"></span>
+                </div>
+                <div class="week-goods-slider__price">
+                  <div>По карте:</div>
+                  <strong class="popup-week-goods__price-card"></strong>
+                </div>
+                <div class="week-goods-slider__price">
+                  <div>Обычная цена:</div>
+                  <div class="popup-week-goods__price-normal"></div>
+                </div>
+                <div class="week-goods-slider__price">
+                  <div>Наличие в маназине:</div>
+                  <div class="popup-week-goods__rest"></div>
+                </div>
+                <div class="week-goods-slider__price">
+                  <div>Акция действует до:</div>
+                  <div class="popup-week-goods__end-date"></div>
+                </div>
+                <div class="week-goods-slider__extra">Не является публичной афертой</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+     
+  
+      <div id="popup-advertising-details" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Подробнее</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-advertising-details__div-img">
+              <img alt="details-img" class="popup-advertising-details__img" />
+            </div>
+            <div class="popup-advertising-details__text popup__main"></div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-seasonal-discounts" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Описание</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-seasonal-discounts__div-img">
+              <img
+                src="{% static 'images/discount-a.png' %}"
+                class="popup-seasonal-discounts__img"
+                alt="seasonal-discount-img"
+              />
+            </div>
+            <div class="popup__main">
+              <div class="popup-seasonal-discounts__top">
+                <div class="popup-seasonal-discounts__header">
+                  <div class="popup-seasonal-discounts__header-text">Все нужное по низким ценам</div>
+                  <!-- <div class="popup-seasonal-discounts__header-share fontello">&#xe816;</div> -->
+                </div>
+                <div class="popup-seasonal-discounts__div-end-date">
+                  Акция действует до <strong class="popup-seasonal-discounts__end-date">02 фев 2021</strong>
+                </div>
+              </div>
+              <div class="popup-seasonal-discounts__bottom">
+                <div class="popup-seasonal-discounts__bottom-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cum nesciunt nostrum tenetur distinctio
+                  vitae praesentium sit maiores iste. Consectetur aperiam aut omnis recusandae est? Quidem, ad sit!
+                  Obcaecati, velit. Autem cumque id voluptatibus velit voluptas ipsum neque. Blanditiis pariatur
+                  recusandae eos quisquam, suscipit exercitationem eius quaerat? Placeat aliquam quidem, numquam culpa
+                  ullam repellendus incidunt maiores accusamus asperiores sit quibusdam!
+                </div>
+                <div><button class="btn-default">Подробнее</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-collection-discounts" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Коллекционные скидки</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-collection-discounts__div-img">
+              <img
+                src="{% static 'images/discount-a.png' %}"
+                class="popup-collection-discounts__img"
+                alt="collection-discount-img"
+              />
+            </div>
+            <div class="popup-collection-discounts__main popup__main"></div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-notifications" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Уведомления</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-notifications__items">
+
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+
+
+
+              <div class="content-profile popup__main">
+
+              
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="popup-cart" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Корзина</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-cart">
+
+
+              
+
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+
+
+
+              <div class="content-profile popup__main">
+
+                
+
+                <p>корзина пуста</p>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div id="popup-comments" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Коментарии</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-comments">
+
+
+
+
+              
+
+              <div class="loading display-none">
+                <img src="/licey/static/images/loading.svg" alt="loading" />
+              </div>
+
+
+
+              <div class="content-profile popup__main">
+
+
+                  <div class="box-comments">
+                    <div class="user-comment">
+
+                      <div class="coment-name_and_content">
+                        <p class="coment-name">Андрей Сергеев</p>
+                        <p>Хороший пост. Спасибо!</p>
+                      </div>
+
+                      <div class="comment-time"><p>12:50</p></div>
+                      
+                    </div>
+
+
+                  </div>
+
+                  <div class="box-send-comment">
+                    <input class="comment-name-enter" type="text" placeholder="Имя">
+                    <textarea name="commentContent" class="comment-content" id="" cols="30" rows="10" placeholder="Сообщение"></textarea>
+                    <div class="btn-default" onclick="SendCommentDish(this);">Отправить </div>
+                  
+                  
+                  </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div id="popup-activedevices" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Уведомления</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-notifications__items">
+
+              <div class="content-profile popup__main">
+
+              
+                <div class="box-devices">
+              
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="popup-paymaster" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Пополнить счет</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-notifications__items">
+
+              <div class="content-profile popup__main">
+
+              
+                <div class="box-devices">
+                  <a class="btn-default" style="width: 100%;" href="https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=licey.stop.cash&InvId=0&Culture=ru&Encoding=utf-8&OutSum=0,00&SignatureValue=0bc09c42e6448681b24dc91045e278e8" target="_blank">Перейти к оплате</a>
+              
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="popup-managmentCart" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Управление картой</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup-notifications__items">
+
+              <div class="content-profile popup__main">
+
+              
+                <div class="box-devices text-center">
+
+                  <div class="btn-default inactive-cart" onclick="InactiveCart(this)" data-status="active">Деактивировать карту</div>
+                  
+
+
+                </div>
+
+                <div class="loading display-none">
+                  <img src="/licey/static/images/loading.svg" alt="loading" />
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-notes" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <div class="popup__navigation">
+              <a class="popup-link popup__back-link fontello">&#xe817;</a>
+              <span class="popup__back-close popup__close fontello">&#xe817;</span>
+              <span>Список покупок</span>
+              <span class="popup__close"> &#10005; </span>
+            </div>
+            <div class="popup__main">
+              <!-- <div class="popup-notes__delete-all">
+                <span class="popup-notes__delete-all-btn fontello">&#xe802;</span>
+              </div> -->
+              <div class="popup-notes__items"></div>
+              <input type="text" class="popup-notes__inp inp-default" placeholder="Название покупки..." />
+              <button class="popup-notes__btn btn-default">Добавить</button>
+            </div>
+            <!-- removable - класс для popup.js -->
+            <div class="popup-notes__item popup-notes__item-clone removable">
+              <div class="checkbox-container">
+                <input type="checkbox" id="" />
+                <label for="">
+                  <span class="checkbox-container__checkmark-container">
+                    <span class="checkbox-container__checkmark">&#x2714;</span>
+                  </span>
+                  <span class="popup-notes__text"></span>
+                </label>
+              </div>
+              <div>
+                <button class="popup-notes__item-count">
+                  <span class="popup-notes__minus">-</span> <span class="popup-notes__count">1</span>
+                  <span class="popup-notes__plus">+</span>
+                </button>
+                <span class="popup-notes__delete fontello">&#xe802;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="popup-cards" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <span class="popup__close"> &#10005; </span>
+            <div>
+              <div class="popup-cards__header">КАРТА<strong>№1</strong></div>
+              <div><img class="popup-cards__img-logo" src="/licey/static/images/7M.png" alt="logo" /></div>
+              <div class="popup-cards__score">
+                <div>МОИ БАЛЛЫ</div>
+                <div>0 БАЛЛОВ</div>
+              </div>
+              <div class="popup-cards__score">
+                <div>0 УРОВЕНЬ</div>
+                <div>1500 &#8381; до 1 уровня</div>
+              </div>
+            </div>
+            <div class="popup-cards__code">
+              <div>Нажмите для списания баллов</div>
+              <img src="/licey/static/images/code.png" alt="code" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+   
+  
+      <!-- Ставим атрибут defer - скрипт ждет пока все остальные скрипты загрузятся -->
+      <!-- <script type='text/javascript'>
+        (function() {
+          window['yandexChatWidgetCallback'] = function() {
+            try {
+              window.yandexChatWidget = new Ya.ChatWidget({
+                guid: 'f76b2304-c692-9e95-58a3-3ef7fdf77f86',
+                buttonText: '',
+                title: 'Чат',
+                theme: 'light',
+                collapsedDesktop: 'never',
+                collapsedTouch: 'always'
+              });
+              window.addEventListener('load', () => {
+                window.dispatchEvent(new Event('yandexChatIsReady'));
+              })
+            } catch (e) {}
+          }
+          var n = document.getElementsByTagName('script')[0],
+            s = document.createElement('script');
+          s.async = true;
+          s.charset = 'UTF-8';
+          s.src = 'https://yastatic.net/s3/chat/widget.js';
+          n.parentNode.insertBefore(s, n);
+        })();
+        </script> -->
+
+    <script src="{% static 'js/main/app.228461a404e87a98241d.js' %}"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/plugins/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.qrcode.min.js' %}"></script>
+    <script src="{% static 'js/plugins/iao-alert.jquery.js' %}"></script>
+    <script src="{% static 'js/node_modules/js-cookie/src/js.cookie.js' %}"></script>
+    <script src="{% static 'js/plugins/pagination.min.js' %}"></script>
+    <script src="{% static 'js/plugins/HZpagination.js' %}"></script>
+
+    <script src="{% static 'js/chat/chat2.js' %}"></script>
+
+    <script src="{% static 'js/chat/yaChatModal.js' %}"></script>
+
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+    
+   
+    <script type='text/javascript'>
+      (function () {
+          window['yandexChatWidgetCallback'] = function() {
+              try {
+                  window.yandexChatWidget = new Ya.ChatWidget({
+                      guid: 'f76b2304-c692-9e95-58a3-3ef7fdf77f86',
+                      buttonText: '',
+                      title: 'Поддержка',
+                      theme: 'light',
+                      collapsedDesktop: 'never',
+                      collapsedTouch: 'never'
+                  });
+              } catch(e) { }
+          };
+          var n = document.getElementsByTagName('script')[0],
+              s = document.createElement('script');
+          s.async = true;
+          s.charset = 'UTF-8';
+          s.src = 'https://yastatic.net/s3/chat/widget.js';
+          n.parentNode.insertBefore(s, n);
+      })();
+      </script>
+
+
+    <script src="{% static 'js/dish.js' %}"></script>
+
+    <script src="{% static 'js/main/theme.js' %}"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Articledwas for {{ idef }}{% endblock %}
+
+{% block content %}
+<h1>Articledwas for {{ idef }}</h1>
+<p>{{ article.headline }}</p>
+<p>{{ article.content }}</p>
+<p>{{ article.pub_date|date:"F j, Y" }}</p>
+{% comment %} {% for article in article_list %}
+    <p>{{ article.headline }}</p>
+    <p>{{ article.content }}</p>
+    
+  <a class="btn" href="/article/{{ article.id }}">Перейти<a>
+    <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
+{% endfor %} {% endcomment %}
+{% endblock %}
+
+    
