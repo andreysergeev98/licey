@@ -75,6 +75,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'liceymenu.wsgi.application'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+   }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
