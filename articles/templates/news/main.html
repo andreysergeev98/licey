@@ -7,9 +7,9 @@
 {% block content %}
 
 
-<script src="{% static 'js/zuck.min.js' %}"></script>
+<script src="/js/zuck.min.js"></script>
 
-<script src="{% static 'js/script.js' %}"></script>
+<script src="/js/script.js"></script>
 
 
 
@@ -216,9 +216,9 @@
 
                   <div class="list-bonus">
 
-                      <div class="name-info-card info-card-list"><img src="{% static 'images/user_info.svg' %}" alt="">{{account.L_Name}} {{account.F_Name}}</div>
-                      <div class="phone-info-card info-card-list"><img src="{% static 'images/telephone.svg' %}" alt="">{{phonecart}}</div>
-                      <div class="born-info-card info-card-list"><img src="{% static 'images/birth.svg' %}" alt="">{{account.Birth}}</div>
+                      <div class="name-info-card info-card-list"><img src="/images/user_info.svg" alt="">{{account.L_Name}} {{account.F_Name}}</div>
+                      <div class="phone-info-card info-card-list"><img src="/static/images/telephone.svg" alt="">{{phonecart}}</div>
+                      <div class="born-info-card info-card-list"><img src="/static/images/birth.svg" alt="">{{account.Birth}}</div>
 
 
                   </div>
@@ -508,7 +508,7 @@
           <div>
             <div>Лицевой счет:</div>
             <div class="popup-menu__score-img-box">
-              <img src="{% static 'images/piggy-bank2.svg' %}" alt="economy" class="popup-menu__img-economy" /> <span class="bonusHeader">{{bonus_account}} </span>
+              <img src="/static/images/piggy-bank2.svg" alt="economy" class="popup-menu__img-economy" /> <span class="bonusHeader">{{bonus_account}} </span>
             </div>
           </div>
 
