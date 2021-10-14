@@ -244,7 +244,7 @@ def getphonekey(request):
 @csrf_protect
 def checkphonekey(request):
 
-    if request.method == 'POST':
+    
         phone = request.POST['phone']
         keysms = request.POST['keysms']
         res = {}
@@ -295,15 +295,6 @@ def checkphonekey(request):
         else:
 
             if '@ErrorCode' not in obj['Data']:
-
-
-                
-
-
-
-               
-
-
 
                 request.session['Auth'] = phone
 
