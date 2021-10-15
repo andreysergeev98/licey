@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['licey.stop.cash', '127.0.0.1']
 
 INSTALLED_APPS = [
     # 'qr_code',
+    'robokassa',
     'django.contrib.admin',
     'django.contrib.auth',
     'articles.apps.ArticlesConfig',
@@ -74,12 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'liceymenu.wsgi.application'
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-   }
-}
 
 
 # Database
@@ -129,18 +124,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/licey/static/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/licey/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/static/',
+    '/home/web/sites/licey/static/',
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ROBOKASSA_LOGIN = 'licey.stop.cash'
+ROBOKASSA_PASSWORD1 = 'A39EUlnr88zTEbFI0kQv'
+ROBOKASSA_PASSWORD2 = 'qnzN0ne2GcZPJoY1tY15'
+

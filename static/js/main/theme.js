@@ -2306,3 +2306,24 @@ function InactiveCart(elem) {
         console.log($(this))
         
     });
+
+
+// function Payclicked(elem) {
+
+//     let summ =  $(elem).parent().find('#summVal').val()
+
+//     if(summ != 0 || summ != ''){
+
+//         let linkPay = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=licey.stop.cash&InvId=8&Culture=ru&Encoding=utf-8&Description=adwa&OutSum='+summ+'.00&Receipt=%7B%22items%22:%5B%7B%22name%22:%22%D0%9F%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%22,%22quantity%22:1,%22sum%22:1,%22payment_method%22:%22advance%22,%22payment_object%22:%22payment%22,%22tax%22:%22none%22%7D%5D%7D&SignatureValue=a7ce691f43e803b44d72714a489dda99'
+//         $(elem).attr('href', linkPay)
+
+
+
+//     }
+
+
+
+
+
+// }
+

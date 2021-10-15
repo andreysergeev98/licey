@@ -1738,6 +1738,50 @@ footer .info-company .company-column a{
 }
 
 
+.virtual-card .btn-default{
+
+    color: #fff;
+    background-color: #337ff1;
+    height: 40px;
+    transition: 0.5s;
+
+}
+.virtual-card .btn-default:hover{
+    background-color: #326ec8;
+}
+
+
+.virtual-card .num-holder-cart{
+    margin: 10px;
+}
+
+
+
+#popup-paymaster .pay-box{
+
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+#popup-paymaster .pay-box .field-summ-pay{
+
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #4e4e4e;
+    color: #fff;
+    padding: 0px 10px;
+
+}
+
+
+#popup-paymaster .popup__content{
+    width: auto;
+}
+
 @media (max-width: 850px){
 
 
