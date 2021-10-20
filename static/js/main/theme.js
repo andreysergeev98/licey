@@ -859,7 +859,7 @@ function checkKey(tel, keysms) {
                                 ' <div class="fontello">&#xe835; Сумма покупки: <strong>'+element['CHECK']['CHECKDATA']['CHECKPAYMENTS']['PAYMENT']['@sum']+' &#8381;</strong></div>'+
                                 bonus+
                                 
-                                '<div class="btn-arrow-history" onclick="ToggleCheck(this)"><img src="/licey/static/images/down-arrow.svg" alt=""></div>'+
+                                '<div class="btn-arrow-history" onclick="ToggleCheck(this)"><img src="/static/images/down-arrow.svg" alt=""></div>'+
 
 
                                 '<div class="items_prod-'+element['CHECK']['CHECKDATA']['@checknum']+' box_check-item"></div>'+
