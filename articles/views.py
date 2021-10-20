@@ -7,7 +7,7 @@ import requests
 from django import template
 import base64
 from base64 import b64encode
-from robokassa.forms import RobokassaForm
+# from robokassa.forms import RobokassaForm
 
 
 from django.core import serializers
@@ -144,16 +144,16 @@ def main(request):
                 auth = True
                 phoneCart = request.session['Auth']
 
-                form = RobokassaForm(initial={
-                    'OutSum': 0.01,
+                # form = RobokassaForm(initial={
+                #     'OutSum': 0.01,
                     
-                    'Desc': 'asd',
-                    'Email': 'sergeevandrey98@yandex.ru',
-                    # 'IncCurrLabel': '',
-                    # 'Culture': 'ru'
-                })
+                #     'Desc': 'asd',
+                #     'Email': 'sergeevandrey98@yandex.ru',
+                #     # 'IncCurrLabel': '',
+                #     # 'Culture': 'ru'
+                # })
             
-                context = {'stories': stories, 'big_discs': big_discs, 'crazySales': crazySales, 'categories': categories, 'auth':auth, 'qrcode':qrcode, 'bonus_account':bonus_account, 'account':account, 'cart':cart, 'phonecart':phoneCart, 'form': form}
+                context = {'stories': stories, 'big_discs': big_discs, 'crazySales': crazySales, 'categories': categories, 'auth':auth, 'qrcode':qrcode, 'bonus_account':bonus_account, 'account':account, 'cart':cart, 'phonecart':phoneCart}
         
             else:
                 auth = False
