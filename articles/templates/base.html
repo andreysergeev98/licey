@@ -576,7 +576,9 @@
             <div class="popup-history__header">
               <div class="popup-history__points-score"><span class="score-icon">&#8381;</span> <span id="storyPoint">0.00</span> баланс</div>
               <div class="popup-history__header-menu">
-                <div class="popup-history__open-purchases popup-history__menu-active">ПОКУПКИ</div>
+                <div class="popup-history__open-purchases popup-history__menu-active" onclick = "showAllList(this)">ВСЕ</div>
+                <div class="popup-history__open-purchases" onclick = "showProdList(this)">ПОКУПКИ</div>
+                <div class="popup-history__open-purchases" onclick = "showPayList(this)">ТРАНЗАКЦИИ</div>
                 <!-- <a href="#popup-qrmenu" class="popup-history__open-points popup-link" onclick="getQrCode();">МОЙ QRCODE</a> -->
               </div>
             </div>

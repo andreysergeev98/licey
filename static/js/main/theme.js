@@ -797,6 +797,13 @@ function checkKey(tel, keysms) {
 
                      let countItem = 0;
                      let bonus = ''
+
+                    
+                     
+
+
+
+
                     msg['story'].forEach(element => {
 
                         countItem++;
@@ -852,7 +859,7 @@ function checkKey(tel, keysms) {
 
                       
                         $('.content-checks').append(
-                            '<li class="popup-history__slide-item tableItem">'+
+                            '<li class="popup-history__slide-item tableItem prodItems">'+
                                 
                                 '<span class="date-time-box"><strong class="date-his-top">'+date_check+'</strong><strong class="date-his-top">'+hour + ':' +minuts+'</strong></span>'+
                                 '<div class="popup-history__slide-item-elem">'+
@@ -911,6 +918,33 @@ function checkKey(tel, keysms) {
                     paginatehis(countItem);
 
                     // $('.content-checks').append('<div class="active-block"></div>')
+
+
+                    msg['pay'].forEach(element => {
+
+                        console.log(element)
+
+                        var summaPay = element['summa']
+
+                        var timePay = element['time'].split(' ')[1].split(':')[0] + ':' + element['time'].split(' ')[1].split(':')[1]
+
+                        var namePay = element['name']
+
+
+                        $('.content-checks').append(
+                            '<li class="popup-history__slide-item tableItem payItems">'+
+                                
+                                '<span class="date-time-box"><strong class="date-his-top">'+element['time'].split(' ')[0]+'</strong><strong class="date-his-top">'+timePay+'</strong></span>'+
+                                '<div class="popup-history__slide-item-elem">'+
+                                ' <div class="fontello">&#xe835; Пополнение счета: <strong>'+element['summa']+' &#8381;</strong></div>'+
+                              
+
+                                '</div>'+
+                            '</li>'
+                            
+                            )
+
+                     })
 
 
 
@@ -2308,22 +2342,22 @@ function InactiveCart(elem) {
     });
 
 
-// function Payclicked(elem) {
+function showPayList(elem) { 
 
-//     let summ =  $(elem).parent().find('#summVal').val()
+    $('#popup-history').find('.content-checks').find('.prodItems').css('display','none')
+    $('#popup-history').find('.content-checks').find('.payItems').css('display','block')
 
-//     if(summ != 0 || summ != ''){
+ }
 
-//         let linkPay = 'https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=licey.stop.cash&InvId=8&Culture=ru&Encoding=utf-8&Description=adwa&OutSum='+summ+'.00&Receipt=%7B%22items%22:%5B%7B%22name%22:%22%D0%9F%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%22,%22quantity%22:1,%22sum%22:1,%22payment_method%22:%22advance%22,%22payment_object%22:%22payment%22,%22tax%22:%22none%22%7D%5D%7D&SignatureValue=a7ce691f43e803b44d72714a489dda99'
-//         $(elem).attr('href', linkPay)
+ function showProdList(elem) { 
 
+    $('#popup-history').find('.content-checks').find('.prodItems').css('display','block')
+    $('#popup-history').find('.content-checks').find('.payItems').css('display','none')
 
+ }
 
-//     }
+ function showAllList(elem) {
 
-
-
-
-
-// }
-
+    $('#popup-history').find('.content-checks').find('li').css('display','block')
+     
+ }

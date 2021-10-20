@@ -526,6 +526,8 @@ def gethistory(request):
 
             array = []
 
+            pay = []
+
             if 'Transaction' in obj['Transactions']:
                 
 
@@ -538,13 +540,13 @@ def gethistory(request):
 
                     
 
-                    if val['Transaction_Type'] == '11':
+                    if val['Transaction_Type'] == '22':
                         if 'External_ID' in val:
                             print(val['External_ID'])
                             writeoff.append(val['External_ID'])
                         
                         
-                    if val['Transaction_Type'] == '22':
+                    if val['Transaction_Type'] == '11':
                         if 'External_ID' in val:
                             print(val['External_ID'])
 
@@ -556,6 +558,11 @@ def gethistory(request):
                                 
                                 data = base64.b64decode(val['Dop_Info']['#text'])
                                 array.append(xmltodict.parse(data))
+
+                    if val['Transaction_Type'] == '12':
+                        print(val['Summ'])
+
+                        pay.append({'summa':val['Summ'], 'time':val['Transaction_Time'], 'name':val['Operation_Type_Name']})
 
                             
 
@@ -571,7 +578,7 @@ def gethistory(request):
 
                     
                 else:
-                    story_arr = {'success': True, 'story': array, 'obj': obj, 'arrNote':writeoff}
+                    story_arr = {'success': True, 'story': array,'pay':pay, 'obj': obj, 'arrNote':writeoff}
                     print()
 
             else:
