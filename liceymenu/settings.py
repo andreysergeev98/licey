@@ -142,6 +142,17 @@ STATICFILES_DIRS = [
     '/home/web/sites/licey/static/',
 ]
 
+
+# Possible Current Configuration 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'LOCATION': 'unique-snowflake',
+     }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
