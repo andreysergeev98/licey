@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['licey.stop.cash', '127.0.0.1']
 
 INSTALLED_APPS = [
     # 'qr_code',
-    'robokassa',
     'django.contrib.admin',
     'django.contrib.auth',
     'articles.apps.ArticlesConfig',
@@ -131,9 +130,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/licey/static/'
+STATIC_URL = '/static/'
 
-MEDIA_URL = '/licey/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
