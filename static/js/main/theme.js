@@ -574,13 +574,13 @@ function checkKey(tel, keysms) {
 
             $('.bonus-system-box .name-auth-main').html(''+l_name +' '+f_name+'')
 
-           $('.btn-saveProfile').css("background-color", "#ffd200");
+           $('.btn-saveProfile').css("background-color", "#337ff1");
             $('.btn-saveProfile').removeAttr('onlyread');
 
             $.iaoAlert({
 
                 msg:"Данные успешно сохранены!",
-                type: "warning",
+                type: "success",
                 mode:"dark",
                 position:'bottom-right',
             

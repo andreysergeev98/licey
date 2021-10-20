@@ -128,11 +128,14 @@ def main(request):
 
             if bonus:
                 print(bonus)
+
+      
                 for val in bonus:
-                    
+                    # print(val['Balance'])
                     if val['Account_Type_ID'] == '1':
                         
                         bonus_account = val['Balance']
+
         
 
             if not cart:
@@ -144,15 +147,7 @@ def main(request):
                 auth = True
                 phoneCart = request.session['Auth']
 
-                # form = RobokassaForm(initial={
-                #     'OutSum': 0.01,
-                    
-                #     'Desc': 'asd',
-                #     'Email': 'sergeevandrey98@yandex.ru',
-                #     # 'IncCurrLabel': '',
-                #     # 'Culture': 'ru'
-                # })
-            
+        
                 context = {'stories': stories, 'big_discs': big_discs, 'crazySales': crazySales, 'categories': categories, 'auth':auth, 'qrcode':qrcode, 'bonus_account':bonus_account, 'account':account, 'cart':cart, 'phonecart':phoneCart}
         
             else:
