@@ -202,7 +202,7 @@
                   <!-- <a href="#popup-qrmenu" class="popup-history__open-points popup-link qrcode-carticon" onclick="getQrCode();"><img src="{% static 'images/qr-code.svg' %}" alt=""></a> -->
                   <!-- <img src="{% static 'images/card.svg' %}" alt=""> -->
                   {% if account %}
-                  <div class="virtual-card" style="background-image: url('images/cart.jpg');">
+                  <div class="virtual-card" style="background-image: url('/static/images/cart.jpg');">
 
                     <div class="name-holder-cart"><h3>{{account.L_Name}} {{account.F_Name}}</h3></div>
 
@@ -218,7 +218,7 @@
 
                       <div class="name-info-card info-card-list"><img src="{% static 'images/user_info.svg' %}" alt="">{{account.L_Name}} {{account.F_Name}}</div>
                       <div class="phone-info-card info-card-list"><img src="{% static 'images/telephone.svg' %}" alt="">{{phonecart}}</div>
-                      <div class="born-info-card info-card-list"><img src="{% static 'images/images/birth.svg' %}" alt="">{{account.Birth}}</div>
+                      <div class="born-info-card info-card-list"><img src="{% static 'images/birth.svg' %}" alt="">{{account.Birth}}</div>
 
 
                   </div>

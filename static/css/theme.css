@@ -1782,6 +1782,10 @@ footer .info-company .company-column a{
     width: auto;
 }
 
+.bonus-cart{
+    margin-bottom: 80px;
+}
+
 @media (max-width: 850px){
 
 
