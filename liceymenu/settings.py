@@ -158,11 +158,3 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
-# 123
-
-ROBOKASSA_LOGIN = 'licey.stop.cash'
-ROBOKASSA_PASSWORD1 = 'A39EUlnr88zTEbFI0kQv'
-ROBOKASSA_PASSWORD2 = 'qnzN0ne2GcZPJoY1tY15'
-
