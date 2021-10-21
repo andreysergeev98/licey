@@ -92,7 +92,7 @@ def main(request):
 
             
 
-        obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+        obj_req = requests.post('http://91.103.111.34:9192/', data = '''
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Edit holders" Terminal_Type="333" Global_Type="" Unit_ID="1">
                 <Include>Account,  Holder_Card, Holder_Coupon, Holder_Contact, Holder_Coupon_Available</Include>
@@ -173,7 +173,7 @@ def testUser(request):
 
 def test(request):
 
-    url='http://195.3.247.215:1192/'
+    url='http://91.103.111.34:9192/'
     headers = {
             'Message-ID': '1',
             'Message-Type': 'Request',
@@ -186,7 +186,7 @@ def test(request):
 
     # Истории заказов тест
 
-    obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+    obj_req = requests.post('http://91.103.111.34:9192/', data = '''
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Edit holders" Terminal_Type="333" Global_Type="" Unit_ID="1">
                 <Include>Account,  Holder_Card, Holder_Coupon, Holder_Coupon_Available</Include>
@@ -229,7 +229,7 @@ def getphonekey(request):
 
             }
 
-        obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+        obj_req = requests.post('http://91.103.111.34:9192/', data = '''
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Login" Terminal_Type="333" Global_Type="" Unit_ID="1" User_ID="1">
                 <Login Auto_Registry="True">''' + phone + '''</Login>
@@ -268,7 +268,7 @@ def checkphonekey(request):
 
             }
 
-        obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+        obj_req = requests.post('http://91.103.111.34:9192/', data = '''
          <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Login" Terminal_Type="333" Global_Type="" Unit_ID="1" User_ID="1">
                 <Login Auto_Registry="True">'''+phone+'''</Login>
@@ -346,7 +346,7 @@ def profile(request):
 
             }
 
-            obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+            obj_req = requests.post('http://91.103.111.34:9192/', data = '''
             <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
                 <Message Action="Edit holders" Terminal_Type="333" Global_Type="" Unit_ID="1">
                     <Include>Account, Holder, Holder_Address, Holder_Image, Holder_Contact</Include>
@@ -429,7 +429,7 @@ def saveprofile(request):
 
                 </Message>'''
 
-            obj_req = requests.post('http://195.3.247.215:1192/', data = text.encode('utf-8'), headers=headers)
+            obj_req = requests.post('http://91.103.111.34:9192/', data = text.encode('utf-8'), headers=headers)
 
             obj = xmltodict.parse(obj_req.content)
 
@@ -465,7 +465,7 @@ def generateqrcode(request):
                     </Holder>
                 </Message>'''
 
-            obj_req = requests.post('http://195.3.247.215:1192/', data = text.encode('utf-8'), headers=headers)
+            obj_req = requests.post('http://91.103.111.34:9192/', data = text.encode('utf-8'), headers=headers)
 
             obj = xmltodict.parse(obj_req.content)
 
@@ -496,7 +496,7 @@ def gethistory(request):
             arr = {'success': True}
 
 
-            url='http://195.3.247.215:1192/'
+            url='http://91.103.111.34:9192/'
             headers = {
                     'Message-ID': '1',
                     'Message-Type': 'Request',
@@ -598,7 +598,7 @@ def getgifts(request):
         if 'Auth' in request.session:
             auth = request.session['Auth']
 
-            url='http://195.3.247.215:1192/'
+            url='http://91.103.111.34:9192/'
             headers = {
                         'Message-ID': '1',
                         'Message-Type': 'Request',
@@ -716,7 +716,7 @@ def inactiveCart(request):
 
                 
 
-        obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+        obj_req = requests.post('http://91.103.111.34:9192/', data = '''
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Edit holders" Terminal_Type="333" Global_Type="" Unit_ID="1">
                 <Include>Holder_Card</Include>
@@ -739,7 +739,7 @@ def inactiveCart(request):
 
         if cart:
 
-            req_incative = requests.post('http://195.3.247.215:1192/', data = '''
+            req_incative = requests.post('http://91.103.111.34:9192/', data = '''
             <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Card inactive" Terminal_Type="333" Global_Type="" Unit_ID="1"
             User_ID="1">
@@ -777,7 +777,7 @@ def activeCart(request):
 
                 
 
-        obj_req = requests.post('http://195.3.247.215:1192/', data = '''
+        obj_req = requests.post('http://91.103.111.34:9192/', data = '''
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Edit holders" Terminal_Type="333" Global_Type="" Unit_ID="1">
                 <Include>Holder_Card</Include>
@@ -793,7 +793,7 @@ def activeCart(request):
 
         if cart:
 
-            req_aсtive = requests.post('http://195.3.247.215:1192/', data = '''
+            req_aсtive = requests.post('http://91.103.111.34:9192/', data = '''
             <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
             <Message Action="Card active" Terminal_Type="333" Global_Type="" Unit_ID="1"
             User_ID="1">
