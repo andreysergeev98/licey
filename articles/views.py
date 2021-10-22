@@ -485,7 +485,7 @@ def logoutprofile(request):
 
     return JsonResponse({'success':True})
 
-
+@csrf_protect
 def gethistory(request):
 
     if request.method == 'POST':
@@ -530,41 +530,48 @@ def gethistory(request):
 
             if 'Transaction' in obj['Transactions']:
                 
+              
+
 
                 writeoff = []
-                for val in obj['Transactions']['Transaction']:
+                if len(obj['Transactions']['Transaction']) > 16:
+                    for val in obj['Transactions']['Transaction']:
+                        print('------------------------')
 
-                    
-                    print(val)
-                    print(val['Transaction_Type'])
-
-                    
-
-                    if val['Transaction_Type'] == '22':
-                        if 'External_ID' in val:
-                            print(val['External_ID'])
-                            writeoff.append(val['External_ID'])
                         
                         
-                    if val['Transaction_Type'] == '11':
-                        if 'External_ID' in val:
-                            print(val['External_ID'])
 
-                            if val['External_ID']  in writeoff:
-                                # print(val['External_ID'])
-                                print(val)
-                                
-                            else:
-                                
-                                data = base64.b64decode(val['Dop_Info']['#text'])
-                                array.append(xmltodict.parse(data))
-
-                    if val['Transaction_Type'] == '12':
-                        print(val['Summ'])
-
-                        pay.append({'summa':val['Summ'], 'time':val['Transaction_Time'], 'name':val['Operation_Type_Name']})
-
+                        if val['Transaction_Type'] == '22':
+                            if 'External_ID' in val:
+                                print(val['External_ID'])
+                                writeoff.append(val['External_ID'])
                             
+                            
+                        if val['Transaction_Type'] == '11':
+                            if 'External_ID' in val:
+                                print(val['External_ID'])
+
+                                if val['External_ID']  in writeoff:
+                                    # print(val['External_ID'])
+                                    print(val)
+                                    
+                                else:
+                                    
+                                    data = base64.b64decode(val['Dop_Info']['#text'])
+                                    array.append(xmltodict.parse(data))
+
+                        if val['Transaction_Type'] == '12':
+                            print(val['Summ'])
+
+                            pay.append({'summa':val['Summ'], 'time':val['Transaction_Time'], 'name':val['Operation_Type_Name']})
+                else:
+
+                    
+                    if obj['Transactions']['Transaction']['Transaction_Type'] == '12':
+                        print(obj['Transactions']['Transaction']['Summ'])
+                        pay.append({'summa':obj['Transactions']['Transaction']['Summ'], 'time':obj['Transactions']['Transaction']['Transaction_Time'], 'name':obj['Transactions']['Transaction']['Operation_Type_Name']})
+
+                    
 
                         
 
@@ -573,7 +580,7 @@ def gethistory(request):
                         
                         # arr.update({'checkes': xmltodict.parse(data)})
 
-                if not array:
+                if not array and not pay:
                     story_arr = {'success': False, 'story': obj}
 
                     

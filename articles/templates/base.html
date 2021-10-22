@@ -574,7 +574,10 @@
               <span class="popup__close"> &#10005; </span>
             </div>
             <div class="popup-history__header">
-              <div class="popup-history__points-score"><span class="score-icon">&#8381;</span> <span id="storyPoint">0.00</span> баланс</div>
+              {% if not bonus_account is None %}
+              <div class="popup-history__points-score"><span class="score-icon">&#8381;</span> <span id="storyPoint">{{bonus_account|floatformat}}</span> баланс</div>
+
+              {% endif %}
               <div class="popup-history__header-menu">
                 <div class="popup-history__open-purchases popup-history__menu-active" onclick = "showAllList(this)">ВСЕ</div>
                 <div class="popup-history__open-purchases" onclick = "showProdList(this)">ПОКУПКИ</div>

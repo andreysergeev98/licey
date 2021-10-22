@@ -793,7 +793,7 @@ function checkKey(tel, keysms) {
                     
 
                      var summa = 0;   
-                     var bonuses = 0;
+                    //  var bonuses = 0;
 
                      let countItem = 0;
                      let bonus = ''
@@ -820,7 +820,7 @@ function checkKey(tel, keysms) {
 
                         if (element['CHECK']['CHECKDATA']['CHECKBONUSES']){
                             var bonus = element['CHECK']['CHECKDATA']['CHECKBONUSES']['BONUS']['@sum']
-                            bonuses += parseFloat(bonus)
+                            // bonuses += parseFloat(bonus)
 
                         }else{
                             bonus = 0
@@ -958,7 +958,7 @@ function checkKey(tel, keysms) {
 
                     console.log('Сумма: ' + summa)
 
-                    $('#storyPoint').html(bonuses)
+                    // $('#storyPoint').html(bonuses)
 
  
                 }else{

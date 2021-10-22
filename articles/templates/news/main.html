@@ -504,7 +504,7 @@
           <div>
             <div>Лицевой счет:</div>
             <div class="popup-menu__score-img-box">
-              <img src="{% static 'images/piggy-bank2.svg' %}" alt="economy" class="popup-menu__img-economy" /> <span class="bonusHeader">{{bonus_account}} </span>
+              <img src="{% static 'images/piggy-bank2.svg' %}" alt="economy" class="popup-menu__img-economy" /> <span class="bonusHeader">{{bonus_account|floatformat}}</span>
             </div>
           </div>
 

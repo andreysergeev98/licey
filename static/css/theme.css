@@ -1141,7 +1141,7 @@ body{
 .box-bonus-cart .bonus-info .list-bonus{
     display: flex;
     justify-content: space-between;
-    width: 330px;
+    max-width: 330px;
     flex-direction: column;
 }
 
@@ -1784,6 +1784,10 @@ footer .info-company .company-column a{
 
 .bonus-cart{
     margin-bottom: 80px;
+}
+
+.box-bonus-cart .bonus-info .list-bonus{
+    max-width: 320px;
 }
 
 @media (max-width: 850px){

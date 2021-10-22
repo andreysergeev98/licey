@@ -87,6 +87,19 @@ DATABASES = {
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'licey',
+#         'USER': 'web',
+#         'PASSWORD': 'ne6KdS-wRnc72',
+#         'HOST': 'https://mysql.stop.cash/'
+#     }
+# }
+
+
+
+
 
 
 # Password validation
